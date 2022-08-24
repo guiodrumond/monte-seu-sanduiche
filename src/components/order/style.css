@@ -1,0 +1,7 @@
+.order {
+    position: absolute;
+    width: 480px;
+    height: 560px;
+    background: #FFC107;
+    border-radius: 4px;
+}

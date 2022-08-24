@@ -1,8 +1,7 @@
 .content {
-    position: absolute;
     height: 720px;
     width: 1280px;
     border-radius: 0px;
     background-color: #fff;
-    border: 1px red solid;
+    border: 1px blue solid;
 }

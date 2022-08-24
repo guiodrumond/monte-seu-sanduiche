@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .header {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
     width: 1280px;
     height: 80px;
     background: #C62828;
     top: 0px;
+    margin: 0px;
 }
 
 .title {
