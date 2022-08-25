@@ -1,0 +1,13 @@
+.section-title {
+    position: relative;
+    width: 195px;
+    height: 28px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #8E0000;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}

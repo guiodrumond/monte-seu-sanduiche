@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import './style.css'
 import Header from '../header'
-import Image from '../image'
+import InterectionSection from '../interectionSection'
 import Order from '../order'
 
 class Content extends Component {
@@ -9,7 +9,7 @@ class Content extends Component {
         return (
             <div className='content'>
                 <Header />
-                <Image />
+                <InterectionSection />
                 <Order />
             </div>
         )
