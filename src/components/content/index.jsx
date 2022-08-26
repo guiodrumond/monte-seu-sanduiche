@@ -11,11 +11,11 @@ class Content extends Component {
         const textSectionTitle = 'Escolha o pão'
         const options = ['Australiano','Brioche','Gergelim','Sal']
         const selectedItems = [
-            'Pão: Brioche',
-            'Carne: Boi',
-            'Queijo: Prato',
-            'Salada: Alface, Tomate',
-            'Complementos: Bacon, Cebola caramelizada, Picles'
+            ['Pão', 'Brioche'],
+            ['Carne', 'Boi'],
+            ['Queijo','Prato'],
+            ['Salada', ['Alface','Tomate']],
+            ['Complementos', ['Bacon', 'Cebola caramelizada', 'Picles']]
         ]
         const total = [4,6,4,2,1,7,10]
 
