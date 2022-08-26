@@ -4,7 +4,7 @@
     flex-flow: column;
     position: relative;
     width: 680px;
-    height: 252px;
+    min-height: 252px;
 }
 
 .options-button {

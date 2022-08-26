@@ -2,14 +2,17 @@ import { Component } from 'react'
 import './style.css'
 import Button from '../button'
 
-class Options extends Component {
+class Options extends Component { 
+
     render() {
+
+        const options = this.props.options
+
         return (
             <div className='options'>
-                <Button className='options-button' text='Australiano'/>
-                <Button className='options-button' text='Brioche'/>
-                <Button className='options-button' text='Gergelim'/>
-                <Button className='options-button' text='Sal'/>
+                {options.map(function(option) {
+                    return <Button text={option} className='options-button'/>
+                })}
             </div>
         )
     }

@@ -9,8 +9,8 @@ class InterectionSection extends Component {
         return (
             <div className='interection-section'>
                 <Image />
-                <SectionTitle />
-                <Options />
+                <SectionTitle text={this.props.text} />
+                <Options options={this.props.options} />
             </div>
         )
     }

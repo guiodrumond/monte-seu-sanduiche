@@ -4,7 +4,7 @@ import './style.css'
 class SectionTitle extends Component {
     render() {
         return(
-            <p className='section-title'>Escolha o pão</p>
+            <p className='section-title'>{ this.props.text }</p>
         )
     }
 }
