@@ -45,10 +45,10 @@
     color: #fff;
 }
 
-.selected-itens {
+.selected-items {
     position: relative;
-    flex-grow: 1;
     margin-left: 24px;
+    margin-bottom: 24px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -56,6 +56,13 @@
     line-height: 19px;
     text-align: center;
     color: #000000;
+}
+
+.items {
+    display: flex;
+    align-items: flex-start;
+    flex-flow: column;
+    flex-grow: 1;
 }
 
 .total {

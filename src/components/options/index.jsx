@@ -10,8 +10,8 @@ class Options extends Component {
 
         return (
             <div className='options'>
-                {options.map(function(option) {
-                    return <Button text={option} className='options-button'/>
+                {options.map(function(option, index) {
+                    return <Button key={index} text={option} className='options-button'/>
                 })}
             </div>
         )
