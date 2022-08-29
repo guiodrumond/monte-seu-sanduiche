@@ -12,7 +12,6 @@ class Order extends Component {
             <div className='order'>
                 <h2 className='orderTitle'>Ingredientes Selecionados:</h2>
                 <div className='items'>
-                    {console.log(items)}
                     {items.map(function (item, index) {
                         return <p key={index} className='selected-items'>{item[0].toUpperCase() + item.substring(1)}: </p>
                     })}
