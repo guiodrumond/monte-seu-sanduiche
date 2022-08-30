@@ -66,20 +66,38 @@ class Content extends Component {
                     price: 6
                 }
             },
-            queijo: 'queijo',
-            saladas: 'saladas',
-            complementos: 'complementos'
-        }
+            queijo: {
+                molhogorgonzola: {
+                    name: 'Molho Gorgonzola',
+                    price: 8
+                },
+                prato: {
+                    name: 'Prato',
+                    price: 6
+                },
+                cheddar: {
+                    name: 'Cheddar',
+                    price: 6
+                },
+                semqueijo: {
+                    name: 'Sem queijo',
+                    price: 0
+                }
+            },
+        
+            saladas: {'saladas'},
+            complementos: {'complementos'}
+    }
 
-        const title = 'Monte Seu Sanduíche'
-        const textSectionTitle = 'Escolha o pão'
-        const options = ['Australiano', 'Brioche', 'Gergelim', 'Sal']
-        const total = [4, 6, 4, 2, 1, 7, 10]
+    const title = 'Monte Seu Sanduíche'
+    const textSectionTitle = 'Escolha o pão'
+    const options = ['Australiano', 'Brioche', 'Gergelim', 'Sal']
+    const total = [4, 6, 4, 2, 1, 7, 10]
 
         console.log(menuItems.values)
 
-        return (
-            <div className='content'>
+    return(
+            <div className = 'content' >
                 <Header title={title} />
                 <InterectionSection
                     text={textSectionTitle}
