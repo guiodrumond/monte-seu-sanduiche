@@ -83,11 +83,42 @@ class Content extends Component {
                     name: 'Sem queijo',
                     price: 0
                 }
+            },   
+            saladas: {
+                alface:{
+                    name:'Alface',
+                    price:1
+                },
+                tomate:{
+                    name: 'Tomate',
+                    price:2
+                },
+                cebola: {
+                    name:'Cebola',
+                    price:2
+                },
+                picles: {
+                    name:'Picles',
+                    price:4
+                }
             },
-        
-            saladas: {'saladas'},
-            complementos: {'complementos'}
-    }
+            complementos: {
+                bacon:{
+                    name:'Bacon',
+                    R$4,00},
+                cebolacaramelizada:
+                    {name: 'Cebola Caramelizada',
+                    price:2},
+                molhoespecial: {
+                    name: 'Molho Especial',
+                    price:3
+                },
+                pimentajalapeno: {
+                    name:'Pimenta Jalapeño',
+                    price:3
+                }
+            }
+        }
 
     const title = 'Monte Seu Sanduíche'
     const textSectionTitle = 'Escolha o pão'
