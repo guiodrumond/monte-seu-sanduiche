@@ -105,7 +105,7 @@ class Content extends Component {
             complementos: {
                 bacon:{
                     name:'Bacon',
-                    R$4,00},
+                    price:4},
                 cebolacaramelizada:
                     {name: 'Cebola Caramelizada',
                     price:2},
@@ -125,7 +125,7 @@ class Content extends Component {
     const options = ['Australiano', 'Brioche', 'Gergelim', 'Sal']
     const total = [4, 6, 4, 2, 1, 7, 10]
 
-        console.log(menuItems.values)
+        console.log(this.state)
 
     return(
             <div className = 'content' >
