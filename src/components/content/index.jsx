@@ -9,13 +9,15 @@ class Content extends Component {
     constructor() {
         super()
         this.state = {
-            passo: 'carne'
-
+            step: ''
         }
         this.listItemsInOrder = this.listItemsInOrder.bind(this)
+        this.selectItem = this.selectItem.bind(this)
     }
 
-
+    selectItem = ($event) => {
+        return console.log($event.target)
+    }
 
     listItemsInOrder(step) {
         const items = ['pão', 'carne', 'queijo', 'salada', 'complementos']
@@ -26,114 +28,60 @@ class Content extends Component {
         return itemsList
     }
 
+    currentStep(steps, stepNumber) {
+        this.setState({
+            step: steps[stepNumber]
+        })
+    }
+
 
     render() {
 
-        const menuItems = {
-            pão: {
-                australiano: {
-                    name: 'Australiano',
-                    price: 3
-                },
-                brioche: {
-                    name: 'Brioche',
-                    price: 3.5
-                },
-                gergelim: {
-                    name: 'Gergelim',
-                    price: 5.8
-                },
-                sal: {
-                    name: 'Sal',
-                    price: 2.5
-                },
-            },
-            carne: {
-                boi: {
-                    name: 'Boi',
-                    price: 8
-                },
-                porco: {
-                    name: 'Porco',
-                    price: 6
-                },
-                frango: {
-                    name: 'Frango',
-                    price: 4
-                },
-                vegetariano: {
-                    name: 'Vegetariano',
-                    price: 6
-                }
-            },
-            queijo: {
-                molhogorgonzola: {
-                    name: 'Molho Gorgonzola',
-                    price: 8
-                },
-                prato: {
-                    name: 'Prato',
-                    price: 6
-                },
-                cheddar: {
-                    name: 'Cheddar',
-                    price: 6
-                },
-                semqueijo: {
-                    name: 'Sem queijo',
-                    price: 0
-                }
-            },   
-            saladas: {
-                alface:{
-                    name:'Alface',
-                    price:1
-                },
-                tomate:{
-                    name: 'Tomate',
-                    price:2
-                },
-                cebola: {
-                    name:'Cebola',
-                    price:2
-                },
-                picles: {
-                    name:'Picles',
-                    price:4
-                }
-            },
-            complementos: {
-                bacon:{
-                    name:'Bacon',
-                    price:4},
-                cebolacaramelizada:
-                    {name: 'Cebola Caramelizada',
-                    price:2},
-                molhoespecial: {
-                    name: 'Molho Especial',
-                    price:3
-                },
-                pimentajalapeno: {
-                    name:'Pimenta Jalapeño',
-                    price:3
-                }
-            }
-        }
+        const menuItems = [
+            ['australiano', 'pão', 'Australiano', 3],
+            ['brioche', 'pão', 'Brioche', 3.5],
+            ['gergelim', 'pão', 'Gergelim', 5.8],
+            ['sal', 'pão', 'Sal', 2.5],
+            ['boi', 'carne', 'Boi', 8],
+            ['porco', 'carne', 'Porco', 6],
+            ['frango', 'carne', 'Frango', 4],
+            ['vegetariano', 'carne', 'Vegetariano', 6],
+            ['molhogorgonzola', 'queijo', 'Molho Gorgonzola', 8],
+            ['prato', 'queijo', 'Prato', 6],
+            ['cheddar', 'queijo', 'Cheddar', 6],
+            ['semqueijo', 'queijo', 'Sem queijo', 0],
+            ['alface', 'saladas', 'Alface', 1],
+            ['tomate', 'saladas', 'Tomate', 2],
+            ['cebola', 'saladas', 'Cebola', 2],
+            ['picles', 'saladas', 'Picles', 4],
+            ['bacon', 'complementos', 'Bacon', 4],
+            ['cebolacaramelizada', 'complementos', 'Cebola Caramelizada', 2],
+            ['molhoespecial', 'complementos', 'Molho Especial', 3],
+            ['pimentajalapeno', 'complementos', 'Pimenta Jalapeño', 3]
+        ]
 
-    const title = 'Monte Seu Sanduíche'
-    const textSectionTitle = 'Escolha o pão'
-    const options = ['Australiano', 'Brioche', 'Gergelim', 'Sal']
-    const total = [4, 6, 4, 2, 1, 7, 10]
+
+        const title = 'Monte Seu Sanduíche'
+        const textSectionTitle = 'Escolha o pão'
+
+        const steps = [...new Set(menuItems.map((item) => item[1]))]
+
+        console.log(steps)
 
         console.log(this.state)
 
-    return(
-            <div className = 'content' >
+        const options = ['Australiano', 'Brioche', 'Gergelim', 'Sal']
+        const total = [4, 6, 4, 2, 1, 7, 10]
+
+        return (
+            <div className='content' >
                 <Header title={title} />
                 <InterectionSection
+                    itemSelection={this.selectItem}
                     text={textSectionTitle}
                     options={options} />
                 <Order
+                    itemSelection={this.selectItem}
                     items={this.listItemsInOrder(1)}
                     total={total} />
             </div>

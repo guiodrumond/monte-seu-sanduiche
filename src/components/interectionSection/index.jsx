@@ -10,7 +10,9 @@ class InterectionSection extends Component {
             <div className='interection-section'>
                 <Image />
                 <SectionTitle text={this.props.text} />
-                <Options options={this.props.options} />
+                <Options
+                    handleClick={this.props.itemSelection}
+                    options={this.props.options} />
             </div>
         )
     }

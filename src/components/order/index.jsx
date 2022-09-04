@@ -3,6 +3,9 @@ import './style.css'
 import Button from '../button'
 
 class Order extends Component {
+
+    
+
     render() {
 
         const items = this.props.items
@@ -19,7 +22,11 @@ class Order extends Component {
                 <p className='total'>
                     Total: R${parseFloat(total.reduce((accumulator, curr) => accumulator + curr)).toFixed(2)}
                 </p>
-                <Button className='order-button' text='Prosseguir' />
+                <Button
+                    // event={itemSelection}
+                    handleClick={this.props.itemSelection}
+                    className='order-button'
+                    text='Prosseguir' />
             </div>
         )
     }
