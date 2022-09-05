@@ -40,7 +40,7 @@ class Content extends Component {
             textSectionTitle: 'Escolha o pão',
             menuItems: menuItems,
             steps: steps,
-            currentStep: steps[1],
+            currentStep: steps[0],
             stepNumber: 0,
             options: [],
             total: [34, 56]
@@ -61,20 +61,18 @@ class Content extends Component {
                 optionsList.push(arr[2])
             }
         })
-        this.setState({
-            options: optionsList
-        })
         return optionsList
     }
 
     currentStep() {
         this.setState({
-            currenteStep: 'abóbora'
+            currentStep: this.state.steps[this.state.stepNumber]
         })
     }
 
 
     advanceStep() {
+        console.log(this.state)
         this.setState({
             stepNumber: this.state.stepNumber + 1,
         })
@@ -86,17 +84,16 @@ class Content extends Component {
 
     render() {
 
-        // const options = this.state.menuItems
-
-        // console.log(this.listOptions())
+        // console.log(this.advanceStep())
+        console.log(this.listOptions())
 
         return (
             <div className='content' >
-                <Header title={this.state.currentStep} />
+                <Header title={this.state.title} />
                 <InterectionSection
                     itemSelection={this.selectItem}
                     text={this.state.textSectionTitle}
-                    options={this.state.options} />
+                    options={this.listOptions()} />
                 <Order
                     advanceStep={this.advanceStep}
                     itemSelection={this.selectItem}
