@@ -8,34 +8,6 @@ class Content extends Component {
 
     constructor() {
         super()
-        this.state = {
-            step: ''
-        }
-        this.listItemsInOrder = this.listItemsInOrder.bind(this)
-        this.selectItem = this.selectItem.bind(this)
-    }
-
-    selectItem = ($event) => {
-        return console.log($event.target)
-    }
-
-    listItemsInOrder(step) {
-        const items = ['pão', 'carne', 'queijo', 'salada', 'complementos']
-        const itemsList = []
-        for (var i = 0; i < step; i++) {
-            itemsList.push(items[i])
-        }
-        return itemsList
-    }
-
-    currentStep(steps, stepNumber) {
-        this.setState({
-            step: steps[stepNumber]
-        })
-    }
-
-
-    render() {
 
         const menuItems = [
             ['australiano', 'pão', 'Australiano', 3],
@@ -61,29 +33,75 @@ class Content extends Component {
         ]
 
 
-        const title = 'Monte Seu Sanduíche'
-        const textSectionTitle = 'Escolha o pão'
-
         const steps = [...new Set(menuItems.map((item) => item[1]))]
 
-        console.log(steps)
+        this.state = {
+            title: 'Monte Seu Sanduíche',
+            textSectionTitle: 'Escolha o pão',
+            menuItems: menuItems,
+            steps: steps,
+            currentStep: steps[1],
+            stepNumber: 0,
+            options: [],
+            total: [34, 56]
+        }
+        this.listOptions = this.listOptions.bind(this)
+        this.currentStep = this.currentStep.bind(this)
+        this.advanceStep = this.advanceStep.bind(this)
+    }
 
+    selectItem = ($event) => {
+        return console.log($event.target)
+    }
+
+    listOptions() {
+        const optionsList = []
+        this.state.menuItems.map((arr) => {
+            if (arr[1] === this.state.currentStep) {
+                optionsList.push(arr[2])
+            }
+        })
+        this.setState({
+            options: optionsList
+        })
+        return optionsList
+    }
+
+    currentStep() {
+        this.setState({
+            currenteStep: 'abóbora'
+        })
+    }
+
+
+    advanceStep() {
+        this.setState({
+            stepNumber: this.state.stepNumber + 1,
+        })
+        this.currentStep()
+        this.listOptions()
         console.log(this.state)
+    }
 
-        const options = ['Australiano', 'Brioche', 'Gergelim', 'Sal']
-        const total = [4, 6, 4, 2, 1, 7, 10]
+
+    render() {
+
+        // const options = this.state.menuItems
+
+        // console.log(this.listOptions())
 
         return (
             <div className='content' >
-                <Header title={title} />
+                <Header title={this.state.currentStep} />
                 <InterectionSection
                     itemSelection={this.selectItem}
-                    text={textSectionTitle}
-                    options={options} />
+                    text={this.state.textSectionTitle}
+                    options={this.state.options} />
                 <Order
+                    advanceStep={this.advanceStep}
                     itemSelection={this.selectItem}
-                    items={this.listItemsInOrder(1)}
-                    total={total} />
+                    items={this.listItemsInOrder}
+                    total={this.state.total} />
             </div>
         )
     }

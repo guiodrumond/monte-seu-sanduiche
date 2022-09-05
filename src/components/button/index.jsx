@@ -2,11 +2,6 @@ import { Component } from 'react'
 
 class Button extends Component {
 
-    // handleClick = () => {
-    //     console.log(this)
-    //     return this.props.handleClick()     
-    // }
-
     render() {
         return(
             <button
