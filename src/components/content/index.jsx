@@ -51,7 +51,9 @@ class Content extends Component {
     }
 
     selectItem = ($event) => {
-        return console.log($event.target)
+        return (
+            console.log($event.target)
+        )
     }
 
     listOptions() {
@@ -72,13 +74,10 @@ class Content extends Component {
 
 
     advanceStep() {
-        console.log(this.state)
         this.setState({
             stepNumber: this.state.stepNumber + 1,
+            currentStep: this.state.steps[this.state.stepNumber + 1]
         })
-        this.currentStep()
-        this.listOptions()
-        console.log(this.state)
     }
 
 
@@ -93,10 +92,10 @@ class Content extends Component {
                 <InterectionSection
                     itemSelection={this.selectItem}
                     text={this.state.textSectionTitle}
-                    options={this.listOptions()} />
+                    options={this.state.menuItems}
+                    currentStep={this.state.currentStep} />
                 <Order
                     advanceStep={this.advanceStep}
-                    itemSelection={this.selectItem}
                     items={this.listItemsInOrder}
                     total={this.state.total} />
             </div>

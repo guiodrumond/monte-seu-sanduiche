@@ -7,7 +7,11 @@ class Button extends Component {
             <button
                 onClick={this.props.handleClick}
                 className={ this.props.className }
-            >{ this.props.text }</button>
+                id={this.props.id}
+                step={this.props.step}
+                name={this.props.name}
+                price={this.props.price}
+            >{ this.props.name }</button>
         )
     }
 }
